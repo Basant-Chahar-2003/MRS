@@ -1,6 +1,5 @@
 import streamlit as st
 import pickle
-import bz2file as bz2
 import pandas as pd
 import requests
 import plotly.express as px
@@ -47,7 +46,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
 
-similarity = pickle.load(bz2.open('similarity.pkl', 'rb'))
+similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 def fetch_poster(id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=9d91b0f6423ae2f110bfb8ddb6a6f1c3&language=en-US".format(id)
